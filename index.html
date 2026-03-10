@@ -1,317 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cristensen Balestramon | IT Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristensen Balestramon | IT Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<style>
+    <style>
+        :root {
+            --primary: #4fd1ff;
+            --secondary: #00d2ff;
+            --bg-dark: #080b12;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(79, 209, 255, 0.2);
+            --text-gray: #aab3c5;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-body{
-font-family:Inter, sans-serif;
-background:#0b0f19;
-color:white;
-line-height:1.6;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-}
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
-header{
-padding:30px 0;
-border-bottom:1px solid #1f2a44;
-}
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+        /* --- Header & Nav --- */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 11, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
 
-.logo{
-font-family:Orbitron;
-font-size:20px;
-color:#4fd1ff;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:20px;
-}
+        .logo {
+            font-family: 'Orbitron';
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(79, 209, 255, 0.5);
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:14px;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-.hero{
-padding:100px 0;
-text-align:center;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-.hero h1{
-font-family:Orbitron;
-font-size:42px;
-margin-bottom:20px;
-}
+        nav a:hover { color: var(--primary); }
 
-.hero span{
-color:#4fd1ff;
-}
+        /* --- Hero Section --- */
+        .hero {
+            padding: 120px 0 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-.hero p{
-color:#aab3c5;
-max-width:600px;
-margin:auto;
-}
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 30px rgba(79, 209, 255, 0.3);
+            margin-bottom: 30px;
+            transition: transform 0.5s ease;
+        }
 
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:12px 28px;
-background:#4fd1ff;
-color:black;
-border-radius:6px;
-text-decoration:none;
-font-weight:500;
-}
+        .profile-img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
 
-section{
-padding:80px 0;
-}
+        .hero h1 {
+            font-family: 'Orbitron';
+            font-size: clamp(32px, 5vw, 52px);
+            margin-bottom: 15px;
+        }
 
-.section-title{
-font-family:Orbitron;
-font-size:26px;
-margin-bottom:40px;
-text-align:center;
-}
+        .hero span { color: var(--primary); }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+        .hero p {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
 
-.card{
-background:#121826;
-padding:25px;
-border-radius:10px;
-border:1px solid #1f2a44;
-transition:0.3s;
-}
+        /* --- Glass Cards --- */
+        section { padding: 100px 0; }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:#4fd1ff;
-}
+        .section-title {
+            font-family: 'Orbitron';
+            font-size: 28px;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
 
-.skills span{
-display:inline-block;
-background:#1c2538;
-padding:6px 12px;
-margin:5px;
-border-radius:5px;
-font-size:13px;
-}
+        .glass-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(5px);
+            transition: 0.4s;
+        }
 
-footer{
-text-align:center;
-padding:30px;
-border-top:1px solid #1f2a44;
-color:#aab3c5;
-}
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
-.contact a{
-display:block;
-color:#4fd1ff;
-margin-top:10px;
-text-decoration:none;
-}
+        /* --- Skills Section --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
 
-</style>
+        .skills-container span {
+            background: rgba(79, 209, 255, 0.1);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .skills-container span:hover {
+            background: var(--primary);
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        /* --- Timeline (Experience) --- */
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary);
+        }
+
+        .timeline-item h3 { color: var(--primary); margin-bottom: 5px; }
+
+        /* --- Contact --- */
+        .contact-content { text-align: center; }
+        .contact-link {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 20px;
+            text-decoration: none;
+            margin: 15px;
+            padding: 10px 25px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Mobile simplicity */
+            .hero { padding: 60px 0; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<div class="container">
-<nav>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CB.DEV</div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="logo">CB.tech</div>
+    <section class="hero" data-aos="fade-up">
+        <div class="container">
+            <img src="https://via.placeholder.com/200" alt="Cristensen Balestramon" class="profile-img">
+            <h1>Hi, I'm <span>Cristensen Balestramon</span></h1>
+            <p>
+                A passionate IT Professional specializing in high-performance Web & Mobile applications, 
+                process automation, and technical infrastructure.
+            </p>
+            <a href="#contact" class="contact-link" style="background: var(--primary); color: black;">Get In Touch</a>
+        </div>
+    </section>
 
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+    <section id="about" data-aos="fade-right">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="glass-card">
+                <div class="timeline-item">
+                    <h3>Education</h3>
+                    <p>Bachelor of Science in Information Technology - Specialization in Mobile and Web Applications.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Technical Internship | EastWest Banking Corp</h3>
+                    <p>Focused on automation, technical documentation, and optimizing IT support workflows.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Customer Service | Sitel</h3>
+                    <p>Delivered high-level problem resolution and customer retention strategies in a fast-paced environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</nav>
-</div>
-</header>
+    <section id="skills" data-aos="fade-left">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-container">
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Python</span>
+                <span>HTML5 / CSS3</span>
+                <span>MongoDB</span>
+                <span>MySQL</span>
+                <span>Android Studio</span>
+                <span>Postman</span>
+                <span>Power Automation</span>
+                <span>Data Analytics</span>
+                <span>Hardware Troubleshooting</span>
+                <span>Cybersecurity</span>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
+    <section id="contact" data-aos="zoom-in">
+        <div class="container contact-content">
+            <h2 class="section-title">Let's Connect</h2>
+            <p style="color: var(--text-gray); margin-bottom: 30px;">Open for collaborations and technical opportunities.</p>
+            <a href="mailto:cristenbalestramon@gmail.com" class="contact-link">Email Me</a>
+            <a href="https://www.linkedin.com/in/cristensen-balestramon-2b3762365/" target="_blank" class="contact-link">LinkedIn</a>
+        </div>
+    </section>
 
-<div class="container">
+    <footer>
+        <p>© 2026 Cristensen Balestramon | Built with Precision</p>
+    </footer>
 
-<h1>Hi, I'm <span>Cristensen Balestramon</span></h1>
-
-<p>
-IT graduate specializing in mobile and web applications with experience in
-technical support, automation, and customer service. I enjoy solving
-technical problems and building systems that improve workflows.
-</p>
-
-<a class="btn" href="#projects">View Projects</a>
-
-</div>
-
-</section>
-
-<section id="about">
-
-<div class="container">
-
-<h2 class="section-title">About Me</h2>
-
-<div class="card">
-
-<p>
-I graduated with a Bachelor of Science in Information Technology with
-specialization in Mobile and Web Applications.
-</p>
-
-<br>
-
-<p>
-During my internship at EastWest Banking Corporation, I assisted in
-technical documentation, supported automation tasks, and contributed to
-improving internal IT support processes.
-</p>
-
-<br>
-
-<p>
-I also worked as a Customer Service Representative at Sitel where I handled
-customer retention calls, resolved issues, and provided personalized
-solutions for customers.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="skills">
-
-<div class="container">
-
-<h2 class="section-title">Technical Skills</h2>
-
-<div class="card skills">
-
-<span>JavaScript</span>
-<span>React</span>
-<span>Python</span>
-<span>HTML</span>
-<span>CSS</span>
-<span>MongoDB</span>
-<span>MySQL</span>
-<span>Android Studio</span>
-<span>Postman</span>
-<span>Cybersecurity Basics</span>
-<span>Data Analytics</span>
-<span>Power Automation</span>
-<span>Hardware Troubleshooting</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="projects">
-
-<div class="container">
-
-<h2 class="section-title">Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>SupportFlow</h3>
-<p>
-IT support ticketing dashboard where users can submit technical issues,
-track progress, and manage troubleshooting documentation.
-</p>
-</div>
-
-<div class="card">
-<h3>AutoOps</h3>
-<p>
-Workflow automation tools that process Excel data, generate reports, and
-simplify attendance tracking systems.
-</p>
-</div>
-
-<div class="card">
-<h3>CallInsight</h3>
-<p>
-Customer support analytics dashboard visualizing call metrics,
-resolution time, and retention performance.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<div class="container">
-
-<h2 class="section-title">Contact</h2>
-
-<div class="card contact">
-
-<p>Email:</p>
-<a href="mailto:cristenbalestramon@gmail.com">
-cristenbalestramon@gmail.com
-</a>
-
-<p>LinkedIn:</p>
-<a href="https://www.linkedin.com/in/cristensen-balestramon-2b3762365/" target="_blank">
-linkedin.com/in/cristensen-balestramon
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>© 2026 Cristensen Balestramon</p>
-
-</footer>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    </script>
 </body>
 </html>
